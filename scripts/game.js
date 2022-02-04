@@ -10,10 +10,22 @@ class Game{
     }
 
     start(){
+        this.ctx.font = "75px Arial";
+        this.ctx.fillStyle = "black";
+        this.ctx.fillText("SPINNER", 50, 100);
+
+        
         this.init()
         this.play()
+        
     }
     init(){
+        
+        this.ctx.font = "75px Arial";
+        this.ctx.fillStyle = "black";
+        this.ctx.fillText("SPINNER", 50, 100);
+        
+        
         this.frames = 0
         this.obstacle.obstacle = []
         this.score = 0        
@@ -21,14 +33,17 @@ class Game{
 
     play(){
         ctx.clearRect(0,0, canvas.width, canvas.height)
+        
         this.frames += 1
         requestAnimationFrame(this.play.bind(this));
 
+        this.showScore()
         this.obstacle1.draw()
         this.spawnObstacles()
         this.player.draw()
         this.player.launchDirection()
         this.gameOver()
+        console.log(this.score)
         
         
         
@@ -37,8 +52,25 @@ class Game{
     gameOver(){
         if(this.player.X > 800 || this.player.X < 0 || this.player.Y < 0 || this.player.Y >600 ){
             console.log("GAME OVER")
+            restart.classList.add("restartButton")
+            overSound.play()
+            this.ctx.save()
+            this.ctx.font = " bold 30px Lucida Console monospace";
+            this.ctx.fillStyle = "white";
+            this.ctx.fillText(`GAME OVER: ${this.score} jumps`, 250, 300);
+            this.ctx.restore()
+            
             cancelAnimationFrame(this.frames)
+            
         }
+    }
+    showScore(){
+        this.score = this.score
+        this.ctx.save()
+        this.ctx.font = " bold 30px Lucida Console monospace";
+        this.ctx.fillStyle = "white";
+        this.ctx.fillText(`JUMPS: ${this.score}`, 550, 550);
+
     }
 
 
@@ -60,8 +92,10 @@ class Game{
     
             if(this.obstacle.obstacle[i].magnetic === false && this.obstacle.obstacle[i].visited === false){
                 if (this.obstacle.obstacle[i].crashWith(this.player) === true){
-                    this.player.X = this.obstacle.obstacle[i].X +25
-                    this.player.Y = this.obstacle.obstacle[i].Y +25
+                    landSound.play()
+                    this.score += 1
+                    this.player.X = this.obstacle.obstacle[i].X + 10
+                    this.player.Y = this.obstacle.obstacle[i].Y + 10
                     this.player.launch = false
                     this.player.angularSpeed = 1.5
                     this.player.rotation = this.obstacle.obstacle[i].rotation

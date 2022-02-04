@@ -1,3 +1,44 @@
 canvas{
     border: solid 1px black;
 }
+
+#container
+{
+  height: 400px;
+  position: relative;
+  width: 400px;
+}
+
+#viewport
+{
+  height: 100%;
+  width: 100%;
+}
+#startButton
+{
+  top: 100px;
+  left: 50px;
+  position: relative;
+  width: 15%;
+}
+
+.restartButton
+{
+  top: 100px;
+  left: 250px;
+  position: relative;
+  width: 15%;
+}
+
+.start{
+    background-image: url("/images/pxArt.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.game{
+    /*background-image: url("/images/background.png");*/
+    /*background-image: url("/images/starry-space-background-pixel-art-8-bit-game-pixel-stars-700-259579949.jpg");*/
+    background-image: url("/images/bigbackground.jpg");
+}
+

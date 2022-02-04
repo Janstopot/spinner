@@ -1,8 +1,8 @@
 class Player{
     constructor(ctx, side, rotation, velocityX, velocityY, launch, fallSpeed){
       this.ctx = ctx
-      this.X = 125
-      this.Y = 525
+      this.X = 110
+      this.Y = 515
       this.side = side
       this.rotation = rotation
       this.velocityX = velocityX
@@ -10,15 +10,20 @@ class Player{
       this.launch = launch
       this.fallSpeed = fallSpeed
       this.update = false
-
       this.angularSpeed = 1.5
+
+
+      this.image = new Image();
+      this.image.src = "/images/froggy.png";
+
+      
     }
 
     draw(){
         this.ctx.save()
         this.rotation -= this.angularSpeed
-        this.ctx.fillStyle = "blue";
-        this.ctx.fillRect(this.X, this.Y, this.side, this.side);
+        //this.ctx.fillStyle = "blue";
+        this.ctx.drawImage(this.image, this.X, this.Y, this.side, this.side);
         this.angleY = Math.sin((Math.PI / 180) * this.rotation)
         this.angleX = Math.cos((Math.PI / 180) *  -this.rotation)
         this.Y += this.fallSpeed
