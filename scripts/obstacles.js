@@ -8,12 +8,12 @@ class Obstacles{
         this.magnetic = magnetic
         this.visited = visited
         this.fallSpeed = fallSpeed
-
-
         this.velocity = 0
-  
         this.cx = X + this.side/2
         this.cy = Y + this.side/2
+
+        this.image = new Image()
+        this.image.src = "/images/ship.png"
   
     }
   
@@ -25,14 +25,16 @@ class Obstacles{
         this.ctx.translate(this.cx, this.cy);              //translate to center of shape
         this.ctx.rotate((Math.PI / 180) * this.rotation); //rotate specified angle
         this.ctx.translate(-this.cx, -this.cy)      
-        this.ctx.fillRect(this.X, this.Y, this.side, this.side);
+        this.ctx.drawImage(this.image,this.X, this.Y, this.side, this.side);
         this.rotation -= this.velocity
             
             
-            // line
+        
+      
         this.cx = this.X + this.side/2
         this.cy = this.Y + this.side/2
-  
+        //    line
+      /*
         this.ctx.beginPath();
         this.ctx.moveTo(this.cx, this.cy);
         this.ctx.strokeStyle = "red"
@@ -40,7 +42,7 @@ class Obstacles{
         this.ctx.lineTo(this.cx + 200, this.cy);
         this.ctx.stroke();
             
-  
+        */
         //this.Y += this.velocity
         this.Y += this.fallSpeed
         this.ctx.restore()
