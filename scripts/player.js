@@ -14,7 +14,7 @@ class Player{
 
 
       this.image = new Image();
-      this.image.src = "/images/froggy.png";
+      this.image.src = "images/froggy.png";
 
       
     }

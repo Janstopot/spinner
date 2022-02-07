@@ -18,10 +18,10 @@ const game = new Game(ctx, player, obstacle1, obstacle)
 
 // ---------------- sounds
 
-const jumpSound = new Audio("/sounds/jump.wav")
-const landSound = new Audio("/sounds/click.wav")
-const overSound = new Audio("/sounds/powerUp.wav")
-const startSound = new Audio("/sounds/blipSelect.wav")
+const jumpSound = new Audio("sounds/jump.wav")
+const landSound = new Audio("sounds/click.wav")
+const overSound = new Audio("sounds/powerUp.wav")
+const startSound = new Audio("sounds/blipSelect.wav")
 
 // ------------------ TITLE
 

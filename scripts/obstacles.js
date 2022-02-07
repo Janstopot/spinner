@@ -13,7 +13,7 @@ class Obstacles{
         this.cy = Y + this.side/2
 
         this.image = new Image()
-        this.image.src = "/images/ship.png"
+        this.image.src = "images/ship.png"
   
     }
   
