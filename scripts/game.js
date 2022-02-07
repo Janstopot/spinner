@@ -85,11 +85,18 @@ class Game{
                 this.counter = !this.counter
                 this.obstacle.obstacle.push(new Obstacles(this.ctx, 100, 0, 100, 0, false, false, 1))
             }
+            
         }
-     
+        console.log(obstacle.obstacle.length)
         for(let i = 0; i < this.obstacle.obstacle.length; i++){
             this.obstacle.obstacle[i].draw()
-    
+            if(obstacle.obstacle.length > 4 && obstacle.obstacle[i].Y > 200){
+                obstacle.obstacle.shift()
+                console.log("SPLICE")
+
+            }
+            
+            
             if(this.obstacle.obstacle[i].magnetic === false && this.obstacle.obstacle[i].visited === false){
                 if (this.obstacle.obstacle[i].crashWith(this.player) === true){
                     landSound.play()
@@ -110,6 +117,7 @@ class Game{
             if(this.obstacle.obstacle[i].magnetic === true && this.obstacle.obstacle[i].crashWith(this.player) === true && this.obstacle.obstacle[i].visited === true ){
                 if (this.player.launch === true) this.obstacle.obstacle[i].magnetic = false
             }
+            
         }
     }
 }
