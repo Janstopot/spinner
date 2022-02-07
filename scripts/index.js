@@ -58,7 +58,7 @@ restart.onclick = ()=>{
     game.init()
 }
 
-
+// -------- action
 
 document.addEventListener('keypress', event => {
     
