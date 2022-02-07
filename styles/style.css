@@ -31,7 +31,7 @@ canvas{
 }
 
 .start{
-    background-image: url("images/pxArt.png");
+    background-image: url("../images/pxArt.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -39,6 +39,6 @@ canvas{
 .game{
     /*background-image: url("/images/background.png");*/
     /*background-image: url("/images/starry-space-background-pixel-art-8-bit-game-pixel-stars-700-259579949.jpg");*/
-    background-image: url("images/bigbackground.jpg");
+    background-image: url("../images/bigbackground.jpg");
 }
 
